@@ -35,7 +35,7 @@ export default function Home() {
   const [draftStarted, setDraftStarted] = useState(false);
   const [draftRound, setDraftRound] = useState(1);
   const [isSnake, setIsSnake] = useState(true);
-  const [pickNumber, setPickNumber] = useState(1);
+  const [pickNumber, _] = useState(1);
   const [isDraftComplete, setIsDraftComplete] = useState(false);
 
   const [teams] = useState<Team[]>([
@@ -496,6 +496,12 @@ export default function Home() {
             >
               Restart Draft
             </button>
+          </div>
+        )}
+
+        {isDraftComplete && (
+          <div className="mt-8 text-center">
+            <p className="text-gray-600">Don&apos;t forget to save your draft!</p>
           </div>
         )}
       </div>
