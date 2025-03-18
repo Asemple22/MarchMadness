@@ -9,6 +9,7 @@ interface Team {
   region: string;
   isFirstFour?: boolean;
   ev: number;
+  winner: number;
   odds: {
     championship: number;
     finalFour: number;
@@ -25,83 +26,83 @@ interface TeamSelectorProps {
 export default function TeamSelector({ onSelectTeam, selectedTeams }: TeamSelectorProps) {
   const [teams] = useState<Team[]>([
     // East Region (E)
-    { id: '1', name: 'Duke', seed: 1, region: 'East', ev: 96.7, odds: { championship: 320, finalFour: -120, eliteEight: -260, sweetSixteen: -800 } },
-    { id: '2', name: 'Mississippi St.', seed: 8, region: 'East', ev: 57.0, odds: { championship: 10000, finalFour: 850, eliteEight: 900, sweetSixteen: 900 } },
-    { id: '3', name: 'Baylor', seed: 9, region: 'East', ev: 46.0, odds: { championship: 6000, finalFour: 3500, eliteEight: 1000, sweetSixteen: 750 } },
-    { id: '4', name: 'Oregon', seed: 5, region: 'East', ev: 66.1, odds: { championship: 13000, finalFour: 2200, eliteEight: 1300, sweetSixteen: 250 } },
-    { id: '5', name: 'Liberty', seed: 12, region: 'East', ev: 52.0, odds: { championship: 35000, finalFour: 20000, eliteEight: 3000, sweetSixteen: 650 } },
-    { id: '6', name: 'Arizona', seed: 4, region: 'East', ev: 80.0, odds: { championship: 2500, finalFour: 950, eliteEight: 450, sweetSixteen: -180 } },
-    { id: '7', name: 'Akron', seed: 13, region: 'East', ev: 47.5, odds: { championship: 30000, finalFour: 20000, eliteEight: 10000, sweetSixteen: 1100 } },
-    { id: '8', name: 'BYU', seed: 6, region: 'East', ev: 71.0, odds: { championship: 4000, finalFour: 1500, eliteEight: 425, sweetSixteen: 180 } },
-    { id: '9', name: 'VCU', seed: 11, region: 'East', ev: 63.8, odds: { championship: 9000, finalFour: 4000, eliteEight: 900, sweetSixteen: 380 } },
-    { id: '10', name: 'Wisconsin', seed: 3, region: 'East', ev: 82.5, odds: { championship: 1800, finalFour: 850, eliteEight: 300, sweetSixteen: -145 } },
-    { id: '11', name: 'Montana', seed: 14, region: 'East', ev: 17.3, odds: { championship: 50000, finalFour: 20000, eliteEight: 10000, sweetSixteen: 2000 } },
-    { id: '12', name: "Saint Mary's", seed: 7, region: 'East', ev: 68.2, odds: { championship: 4500, finalFour: 1800, eliteEight: 500, sweetSixteen: 270 } },
-    { id: '13', name: 'Vanderbilt', seed: 10, region: 'East', ev: 53.1, odds: { championship: 15000, finalFour: 6000, eliteEight: 1500, sweetSixteen: 750 } },
-    { id: '14', name: 'Alabama', seed: 2, region: 'East', ev: 88.7, odds: { championship: 850, finalFour: 450, eliteEight: 120, sweetSixteen: -200 } },
-    { id: '15', name: 'Robert Morris', seed: 15, region: 'East', ev: 15.5, odds: { championship: 50000, finalFour: 50000, eliteEight: 15000, sweetSixteen: 10000 } },
-    { id: '16', name: 'American', seed: 16, region: 'East', isFirstFour: true, ev: 19.8, odds: { championship: 50000, finalFour: 50000, eliteEight: 15000, sweetSixteen: 10000 } },
-    { id: '17', name: 'Mount St. Mary\'s', seed: 16, region: 'East', isFirstFour: true, ev: 19.5, odds: { championship: 50000, finalFour: 50000, eliteEight: 15000, sweetSixteen: 10000 } },
+    { id: '1', name: 'Duke', seed: 1, region: 'East', ev: 96.7, winner: 320, odds: { championship: 185, finalFour: -120, eliteEight: -260, sweetSixteen: -800 } },
+    { id: '2', name: 'Mississippi St.', seed: 8, region: 'East', ev: 57.0, winner: 25000, odds: { championship: 10000, finalFour: 850, eliteEight: 900, sweetSixteen: 900 } },
+    { id: '3', name: 'Baylor', seed: 9, region: 'East', ev: 46.0, winner: 30000, odds: { championship: 6000, finalFour: 3500, eliteEight: 1000, sweetSixteen: 750 } },
+    { id: '4', name: 'Oregon', seed: 5, region: 'East', ev: 66.1, winner: 18000, odds: { championship: 13000, finalFour: 2200, eliteEight: 1300, sweetSixteen: 250 } },
+    { id: '5', name: 'Liberty', seed: 12, region: 'East', ev: 52.0, winner: 80000, odds: { championship: 35000, finalFour: 20000, eliteEight: 3000, sweetSixteen: 650 } },
+    { id: '6', name: 'Arizona', seed: 4, region: 'East', ev: 80.0, winner: 5000, odds: { championship: 2500, finalFour: 950, eliteEight: 450, sweetSixteen: -180 } },
+    { id: '7', name: 'Akron', seed: 13, region: 'East', ev: 47.5, winner: 80000, odds: { championship: 30000, finalFour: 20000, eliteEight: 10000, sweetSixteen: 1100 } },
+    { id: '8', name: 'BYU', seed: 6, region: 'East', ev: 71.0, winner: 9000, odds: { championship: 4000, finalFour: 1500, eliteEight: 425, sweetSixteen: 180 } },
+    { id: '9', name: 'VCU', seed: 11, region: 'East', ev: 63.8, winner: 40000, odds: { championship: 9000, finalFour: 4000, eliteEight: 900, sweetSixteen: 380 } },
+    { id: '10', name: 'Wisconsin', seed: 3, region: 'East', ev: 82.5, winner: 6000, odds: { championship: 1800, finalFour: 850, eliteEight: 300, sweetSixteen: -145 } },
+    { id: '11', name: 'Montana', seed: 14, region: 'East', ev: 17.3, winner: 100000, odds: { championship: 50000, finalFour: 20000, eliteEight: 10000, sweetSixteen: 2000 } },
+    { id: '12', name: "Saint Mary's", seed: 7, region: 'East', ev: 68.2, winner: 13000, odds: { championship: 4500, finalFour: 1800, eliteEight: 500, sweetSixteen: 270 } },
+    { id: '13', name: 'Vanderbilt', seed: 10, region: 'East', ev: 53.1, winner: 40000, odds: { championship: 15000, finalFour: 6000, eliteEight: 1500, sweetSixteen: 750 } },
+    { id: '14', name: 'Alabama', seed: 2, region: 'East', ev: 88.7, winner: 2200, odds: { championship: 850, finalFour: 450, eliteEight: 120, sweetSixteen: -200 } },
+    { id: '15', name: 'Robert Morris', seed: 15, region: 'East', ev: 15.5, winner: 100000, odds: { championship: 50000, finalFour: 50000, eliteEight: 15000, sweetSixteen: 10000 } },
+    { id: '16', name: 'American', seed: 16, region: 'East', isFirstFour: true, ev: 19.8, winner: 100000, odds: { championship: 50000, finalFour: 50000, eliteEight: 15000, sweetSixteen: 10000 } },
+    { id: '17', name: 'Mount St. Mary\'s', seed: 16, region: 'East', isFirstFour: true, ev: 19.5, winner: 100000, odds: { championship: 50000, finalFour: 50000, eliteEight: 15000, sweetSixteen: 10000 } },
 
     // West Region
-    { id: '18', name: 'Florida', seed: 1, region: 'West', ev: 100.0, odds: { championship: 380, finalFour: -125, eliteEight: -240, sweetSixteen: -750 } },
-    { id: '19', name: 'Norfolk St.', seed: 16, region: 'West', ev: 14.5, odds: { championship: 50000, finalFour: 50000, eliteEight: 5000, sweetSixteen: 10000 } },
-    { id: '20', name: 'UConn', seed: 8, region: 'West', ev: 71.0, odds: { championship: 5000, finalFour: 2000, eliteEight: 850, sweetSixteen: 600 } },
-    { id: '21', name: 'Oklahoma', seed: 9, region: 'West', ev: 55.0, odds: { championship: 18000, finalFour: 8000, eliteEight: 1500, sweetSixteen: 1200 } },
-    { id: '22', name: 'Memphis', seed: 5, region: 'West', ev: 65.0, odds: { championship: 9000, finalFour: 5500, eliteEight: 2000, sweetSixteen: 600 } },
-    { id: '23', name: 'Colorado St.', seed: 12, region: 'West', ev: 54.9, odds: { championship: 15000, finalFour: 6500, eliteEight: 1500, sweetSixteen: 400 } },
-    { id: '24', name: 'Maryland', seed: 4, region: 'West', ev: 78.7, odds: { championship: 1200, finalFour: 750, eliteEight: 360, sweetSixteen: -180 } },
-    { id: '25', name: 'Grand Canyon', seed: 13, region: 'West', ev: 49.1, odds: { championship: 25000, finalFour: 20000, eliteEight: 8000, sweetSixteen: 900 } },
-    { id: '26', name: 'Missouri', seed: 6, region: 'West', ev: 68.0, odds: { championship: 5000, finalFour: 2200, eliteEight: 500, sweetSixteen: 250 } },
-    { id: '27', name: 'Drake', seed: 11, region: 'West', ev: 55.6, odds: { championship: 15000, finalFour: 9000, eliteEight: 1500, sweetSixteen: 700 } },
-    { id: '28', name: 'Texas Tech', seed: 3, region: 'West', ev: 84.5, odds: { championship: 1200, finalFour: 550, eliteEight: 135, sweetSixteen: -145 } },
-    { id: '29', name: 'UNC Wilmington', seed: 14, region: 'West', ev: 17.5, odds: { championship: 50000, finalFour: 25000, eliteEight: 10000, sweetSixteen: 2500 } },
-    { id: '30', name: 'Kansas', seed: 7, region: 'West', ev: 62.3, odds: { championship: 6000, finalFour: 1800, eliteEight: 550, sweetSixteen: 210 } },
-    { id: '31', name: 'Arkansas', seed: 10, region: 'West', ev: 55.0, odds: { championship: 9000, finalFour: 5000, eliteEight: 1000, sweetSixteen: 550 } },
-    { id: '32', name: "St. John's", seed: 2, region: 'West', ev: 77.8, odds: { championship: 1800, finalFour: 600, eliteEight: 210, sweetSixteen: -170 } },
-    { id: '33', name: 'Omaha', seed: 15, region: 'West', ev: 15.0, odds: { championship: 50000, finalFour: 50000, eliteEight: 10000, sweetSixteen: 5000 } },
+    { id: '18', name: 'Florida', seed: 1, region: 'West', ev: 100.0, winner: 380, odds: { championship: 190, finalFour: -125, eliteEight: -240, sweetSixteen: -750 } },
+    { id: '19', name: 'Norfolk St.', seed: 16, region: 'West', ev: 14.5, winner: 100000, odds: { championship: 50000, finalFour: 50000, eliteEight: 5000, sweetSixteen: 10000 } },
+    { id: '20', name: 'UConn', seed: 8, region: 'West', ev: 71.0, winner: 8000, odds: { championship: 5000, finalFour: 2000, eliteEight: 850, sweetSixteen: 600 } },
+    { id: '21', name: 'Oklahoma', seed: 9, region: 'West', ev: 55.0, winner: 60000, odds: { championship: 18000, finalFour: 8000, eliteEight: 1500, sweetSixteen: 1200 } },
+    { id: '22', name: 'Memphis', seed: 5, region: 'West', ev: 65.0, winner: 35000, odds: { championship: 9000, finalFour: 5500, eliteEight: 2000, sweetSixteen: 600 } },
+    { id: '23', name: 'Colorado St.', seed: 12, region: 'West', ev: 54.9, winner: 40000, odds: { championship: 15000, finalFour: 6500, eliteEight: 1500, sweetSixteen: 400 } },
+    { id: '24', name: 'Maryland', seed: 4, region: 'West', ev: 78.7, winner: 4500, odds: { championship: 1200, finalFour: 750, eliteEight: 360, sweetSixteen: -180 } },
+    { id: '25', name: 'Grand Canyon', seed: 13, region: 'West', ev: 49.1, winner: 80000, odds: { championship: 25000, finalFour: 20000, eliteEight: 8000, sweetSixteen: 900 } },
+    { id: '26', name: 'Missouri', seed: 6, region: 'West', ev: 68.0, winner: 12000, odds: { championship: 5000, finalFour: 2200, eliteEight: 500, sweetSixteen: 250 } },
+    { id: '27', name: 'Drake', seed: 11, region: 'West', ev: 55.6, winner: 50000, odds: { championship: 15000, finalFour: 9000, eliteEight: 1500, sweetSixteen: 700 } },
+    { id: '28', name: 'Texas Tech', seed: 3, region: 'West', ev: 84.5, winner: 3500, odds: { championship: 1200, finalFour: 550, eliteEight: 135, sweetSixteen: -145 } },
+    { id: '29', name: 'UNC Wilmington', seed: 14, region: 'West', ev: 17.5, winner: 100000, odds: { championship: 50000, finalFour: 25000, eliteEight: 10000, sweetSixteen: 2500 } },
+    { id: '30', name: 'Kansas', seed: 7, region: 'West', ev: 62.3, winner: 9000, odds: { championship: 6000, finalFour: 1800, eliteEight: 550, sweetSixteen: 210 } },
+    { id: '31', name: 'Arkansas', seed: 10, region: 'West', ev: 55.0, winner: 20000, odds: { championship: 9000, finalFour: 5000, eliteEight: 1000, sweetSixteen: 550 } },
+    { id: '32', name: "St. John's", seed: 2, region: 'West', ev: 77.8, winner: 2800, odds: { championship: 1800, finalFour: 600, eliteEight: 210, sweetSixteen: -170 } },
+    { id: '33', name: 'Omaha', seed: 15, region: 'West', ev: 15.0, winner: 100000, odds: { championship: 50000, finalFour: 50000, eliteEight: 10000, sweetSixteen: 5000 } },
 
     // South Region (S)
-    { id: '34', name: 'Auburn', seed: 1, region: 'South', ev: 94.2, odds: { championship: 400, finalFour: -135, eliteEight: -180, sweetSixteen: -400 } },
-    { id: '35', name: 'Louisville', seed: 8, region: 'South', ev: 60.9, odds: { championship: 4000, finalFour: 2200, eliteEight: 600, sweetSixteen: 750 } },
-    { id: '36', name: 'Creighton', seed: 9, region: 'South', ev: 59.7, odds: { championship: 5000, finalFour: 3000, eliteEight: 850, sweetSixteen: 700 } },
-    { id: '37', name: 'Michigan', seed: 5, region: 'South', ev: 47.0, odds: { championship: 4500, finalFour: 1800, eliteEight: 950, sweetSixteen: 190 } },
-    { id: '38', name: 'UC San Diego', seed: 12, region: 'South', ev: 54.4, odds: { championship: 9000, finalFour: 7000, eliteEight: 1200, sweetSixteen: 390 } },
-    { id: '39', name: 'Texas A&M', seed: 4, region: 'South', ev: 71.0, odds: { championship: 3500, finalFour: 1600, eliteEight: 650, sweetSixteen: 120 } },
-    { id: '40', name: 'Yale', seed: 13, region: 'South', ev: 50.6, odds: { championship: 50000, finalFour: 15000, eliteEight: 5000, sweetSixteen: 600 } },
-    { id: '41', name: 'Ole Miss', seed: 6, region: 'South', ev: 47.2, odds: { championship: 6500, finalFour: 2000, eliteEight: 500, sweetSixteen: 220 } },
-    { id: '42', name: 'Iowa St.', seed: 3, region: 'South', ev: 83.3, odds: { championship: 3000, finalFour: 750, eliteEight: 220, sweetSixteen: -140 } },
-    { id: '43', name: 'Lipscomb', seed: 14, region: 'South', ev: 17.0, odds: { championship: 50000, finalFour: 35000, eliteEight: 8000, sweetSixteen: 2000 } },
-    { id: '44', name: 'Marquette', seed: 7, region: 'South', ev: 59.4, odds: { championship: 7000, finalFour: 2500, eliteEight: 500, sweetSixteen: 260 } },
-    { id: '45', name: 'New Mexico', seed: 10, region: 'South', ev: 57.9, odds: { championship: 15000, finalFour: 6000, eliteEight: 850, sweetSixteen: 500 } },
-    { id: '46', name: 'Michigan St.', seed: 2, region: 'South', ev: 89.5, odds: { championship: 1500, finalFour: 500, eliteEight: 140, sweetSixteen: -180 } },
-    { id: '47', name: 'Bryant', seed: 15, region: 'South', ev: 15.3, odds: { championship: 50000, finalFour: 50000, eliteEight: 5000, sweetSixteen: 2500 } },
-    { id: '48', name: 'Alabama St.', seed: 16, region: 'South', isFirstFour: true, ev: 20.0, odds: { championship: 50000, finalFour: 50000, eliteEight: 15000, sweetSixteen: 10000 } },
-    { id: '49', name: 'Saint Francis U', seed: 16, region: 'South', isFirstFour: true, ev: 19.5, odds: { championship: 50000, finalFour: 50000, eliteEight: 15000, sweetSixteen: 10000 } },
-    { id: '50', name: 'San Diego St.', seed: 11, region: 'South', isFirstFour: true, ev: 63.2, odds: { championship: 25000, finalFour: 15000, eliteEight: 1500, sweetSixteen: 950 } },
-    { id: '51', name: 'North Carolina', seed: 11, region: 'South', isFirstFour: true, ev: 63.5, odds: { championship: 12000, finalFour: 5500, eliteEight: 1000, sweetSixteen: 425 } },
+    { id: '34', name: 'Auburn', seed: 1, region: 'South', ev: 94.2, winner: 400, odds: { championship: 170, finalFour: -135, eliteEight: -180, sweetSixteen: -400 } },
+    { id: '35', name: 'Louisville', seed: 8, region: 'South', ev: 60.9, winner: 10000, odds: { championship: 4000, finalFour: 2200, eliteEight: 600, sweetSixteen: 750 } },
+    { id: '36', name: 'Creighton', seed: 9, region: 'South', ev: 59.7, winner: 13000, odds: { championship: 5000, finalFour: 3000, eliteEight: 850, sweetSixteen: 700 } },
+    { id: '37', name: 'Michigan', seed: 5, region: 'South', ev: 47.0, winner: 7500, odds: { championship: 4500, finalFour: 1800, eliteEight: 950, sweetSixteen: 190 } },
+    { id: '38', name: 'UC San Diego', seed: 12, region: 'South', ev: 54.4, winner: 50000, odds: { championship: 9000, finalFour: 7000, eliteEight: 1200, sweetSixteen: 390 } },
+    { id: '39', name: 'Texas A&M', seed: 4, region: 'South', ev: 71.0, winner: 10000, odds: { championship: 3500, finalFour: 1600, eliteEight: 650, sweetSixteen: 120 } },
+    { id: '40', name: 'Yale', seed: 13, region: 'South', ev: 50.6, winner: 100000, odds: { championship: 50000, finalFour: 15000, eliteEight: 5000, sweetSixteen: 600 } },
+    { id: '41', name: 'Ole Miss', seed: 6, region: 'South', ev: 47.2, winner: 15000, odds: { championship: 6500, finalFour: 2000, eliteEight: 500, sweetSixteen: 220 } },
+    { id: '42', name: 'Iowa St.', seed: 3, region: 'South', ev: 83.3, winner: 4500, odds: { championship: 2500, finalFour: 750, eliteEight: 220, sweetSixteen: -140 } },
+    { id: '43', name: 'Lipscomb', seed: 14, region: 'South', ev: 17.0, winner: 100000, odds: { championship: 50000, finalFour: 35000, eliteEight: 8000, sweetSixteen: 2000 } },
+    { id: '44', name: 'Marquette', seed: 7, region: 'South', ev: 59.4, winner: 20000, odds: { championship: 7000, finalFour: 2500, eliteEight: 500, sweetSixteen: 260 } },
+    { id: '45', name: 'New Mexico', seed: 10, region: 'South', ev: 57.9, winner: 35000, odds: { championship: 15000, finalFour: 6000, eliteEight: 850, sweetSixteen: 500 } },
+    { id: '46', name: 'Michigan St.', seed: 2, region: 'South', ev: 89.5, winner: 2500, odds: { championship: 1500, finalFour: 500, eliteEight: 140, sweetSixteen: -180 } },
+    { id: '47', name: 'Bryant', seed: 15, region: 'South', ev: 15.3, winner: 100000, odds: { championship: 50000, finalFour: 50000, eliteEight: 5000, sweetSixteen: 2500 } },
+    { id: '48', name: 'Alabama St.', seed: 16, region: 'South', isFirstFour: true, ev: 20.0, winner: 100000, odds: { championship: 50000, finalFour: 50000, eliteEight: 15000, sweetSixteen: 10000 } },
+    { id: '49', name: 'Saint Francis U', seed: 16, region: 'South', isFirstFour: true, ev: 19.5, winner: 100000, odds: { championship: 50000, finalFour: 50000, eliteEight: 15000, sweetSixteen: 10000 } },
+    { id: '50', name: 'San Diego St.', seed: 11, region: 'South', isFirstFour: true, ev: 63.2, winner: 80000, odds: { championship: 25000, finalFour: 15000, eliteEight: 1500, sweetSixteen: 950 } },
+    { id: '51', name: 'North Carolina', seed: 11, region: 'South', isFirstFour: true, ev: 63.5, winner: 40000, odds: { championship: 12000, finalFour: 5500, eliteEight: 1000, sweetSixteen: 425 } },
 
     // Midwest Region (MW)
-    { id: '52', name: 'Houston', seed: 1, region: 'Midwest', ev: 98.5, odds: { championship: 600, finalFour: 105, eliteEight: -145, sweetSixteen: -350 } },
-    { id: '53', name: 'SIU Edwardsville', seed: 16, region: 'Midwest', ev: 14.4, odds: { championship: 50000, finalFour: 50000, eliteEight: 15000, sweetSixteen: 10000 } },
-    { id: '54', name: 'Gonzaga', seed: 8, region: 'Midwest', ev: 69.1, odds: { championship: 2000, finalFour: 950, eliteEight: 425, sweetSixteen: 340 } },
-    { id: '55', name: 'Georgia', seed: 9, region: 'Midwest', ev: 44.6, odds: { championship: 5000, finalFour: 3500, eliteEight: 1000, sweetSixteen: 1000 } },
-    { id: '56', name: 'Clemson', seed: 5, region: 'Midwest', ev: 75.5, odds: { championship: 4000, finalFour: 1400, eliteEight: 650, sweetSixteen: 140 } },
-    { id: '57', name: 'McNeese', seed: 12, region: 'Midwest', ev: 41.0, odds: { championship: 20000, finalFour: 9000, eliteEight: 1500, sweetSixteen: 700 } },
-    { id: '58', name: 'Purdue', seed: 4, region: 'Midwest', ev: 70.3, odds: { championship: 4500, finalFour: 1300, eliteEight: 650, sweetSixteen: 120 } },
-    { id: '59', name: 'High Point', seed: 13, region: 'Midwest', ev: 48.6, odds: { championship: 50000, finalFour: 15000, eliteEight: 10000, sweetSixteen: 1200 } },
-    { id: '60', name: 'Illinois', seed: 6, region: 'Midwest', ev: 73.2, odds: { championship: 5000, finalFour: 1500, eliteEight: 475, sweetSixteen: 130 } },
-    { id: '61', name: 'Kentucky', seed: 3, region: 'Midwest', ev: 72.0, odds: { championship: 3000, finalFour: 1000, eliteEight: 360, sweetSixteen: 100 } },
-    { id: '62', name: 'Troy', seed: 14, region: 'Midwest', ev: 18.8, odds: { championship: 50000, finalFour: 25000, eliteEight: 10000, sweetSixteen: 2000 } },
-    { id: '63', name: 'UCLA', seed: 7, region: 'Midwest', ev: 67.2, odds: { championship: 7000, finalFour: 2800, eliteEight: 550, sweetSixteen: 320 } },
-    { id: '64', name: 'Utah St.', seed: 10, region: 'Midwest', ev: 44.4, odds: { championship: 25000, finalFour: 11000, eliteEight: 3000, sweetSixteen: 800 } },
-    { id: '65', name: 'Tennessee', seed: 2, region: 'Midwest', ev: 91.8, odds: { championship: 900, finalFour: 390, eliteEight: 100, sweetSixteen: -270 } },
-    { id: '66', name: 'Wofford', seed: 15, region: 'Midwest', ev: 15.2, odds: { championship: 50000, finalFour: 50000, eliteEight: 10000, sweetSixteen: 5000 } },
-    { id: '67', name: 'Texas', seed: 11, region: 'Midwest', isFirstFour: true, ev: 62.7, odds: { championship: 20000, finalFour: 15000, eliteEight: 900, sweetSixteen: 750 } },
-    { id: '68', name: 'Xavier', seed: 11, region: 'Midwest', isFirstFour: true, ev: 62.9, odds: { championship: 25000, finalFour: 12000, eliteEight: 3500, sweetSixteen: 750 } }
+    { id: '52', name: 'Houston', seed: 1, region: 'Midwest', ev: 98.5, winner: 600, odds: { championship: 275, finalFour: 105, eliteEight: -145, sweetSixteen: -350 } },
+    { id: '53', name: 'SIU Edwardsville', seed: 16, region: 'Midwest', ev: 14.4, winner: 100000, odds: { championship: 50000, finalFour: 50000, eliteEight: 15000, sweetSixteen: 10000 } },
+    { id: '54', name: 'Gonzaga', seed: 8, region: 'Midwest', ev: 69.1, winner: 5000, odds: { championship: 2000, finalFour: 950, eliteEight: 425, sweetSixteen: 340 } },
+    { id: '55', name: 'Georgia', seed: 9, region: 'Midwest', ev: 44.6, winner: 40000, odds: { championship: 5000, finalFour: 3500, eliteEight: 1000, sweetSixteen: 1000 } },
+    { id: '56', name: 'Clemson', seed: 5, region: 'Midwest', ev: 75.5, winner: 8000, odds: { championship: 4000, finalFour: 1400, eliteEight: 650, sweetSixteen: 140 } },
+    { id: '57', name: 'McNeese', seed: 12, region: 'Midwest', ev: 41.0, winner: 100000, odds: { championship: 20000, finalFour: 9000, eliteEight: 1500, sweetSixteen: 700 } },
+    { id: '58', name: 'Purdue', seed: 4, region: 'Midwest', ev: 70.3, winner: 7500, odds: { championship: 4500, finalFour: 1300, eliteEight: 650, sweetSixteen: 120 } },
+    { id: '59', name: 'High Point', seed: 13, region: 'Midwest', ev: 48.6, winner: 100000, odds: { championship: 50000, finalFour: 15000, eliteEight: 10000, sweetSixteen: 1200 } },
+    { id: '60', name: 'Illinois', seed: 6, region: 'Midwest', ev: 73.2, winner: 8000, odds: { championship: 5000, finalFour: 1500, eliteEight: 475, sweetSixteen: 130 } },
+    { id: '61', name: 'Kentucky', seed: 3, region: 'Midwest', ev: 72.0, winner: 6000, odds: { championship: 3000, finalFour: 1000, eliteEight: 360, sweetSixteen: 100 } },
+    { id: '62', name: 'Troy', seed: 14, region: 'Midwest', ev: 18.8, winner: 100000, odds: { championship: 50000, finalFour: 25000, eliteEight: 10000, sweetSixteen: 2000 } },
+    { id: '63', name: 'UCLA', seed: 7, region: 'Midwest', ev: 67.2, winner: 20000, odds: { championship: 7000, finalFour: 2800, eliteEight: 550, sweetSixteen: 320 } },
+    { id: '64', name: 'Utah St.', seed: 10, region: 'Midwest', ev: 44.4, winner: 60000, odds: { championship: 25000, finalFour: 11000, eliteEight: 3000, sweetSixteen: 800 } },
+    { id: '65', name: 'Tennessee', seed: 2, region: 'Midwest', ev: 91.8, winner: 2000, odds: { championship: 900, finalFour: 390, eliteEight: 100, sweetSixteen: -270 } },
+    { id: '66', name: 'Wofford', seed: 15, region: 'Midwest', ev: 15.2, winner: 100000, odds: { championship: 50000, finalFour: 50000, eliteEight: 10000, sweetSixteen: 5000 } },
+    { id: '67', name: 'Texas', seed: 11, region: 'Midwest', isFirstFour: true, ev: 62.7, winner: 50000, odds: { championship: 20000, finalFour: 15000, eliteEight: 900, sweetSixteen: 750 } },
+    { id: '68', name: 'Xavier', seed: 11, region: 'Midwest', isFirstFour: true, ev: 62.9, winner: 50000, odds: { championship: 25000, finalFour: 12000, eliteEight: 3500, sweetSixteen: 750 } }
   ]);
 
-  const [sortBy, setSortBy] = useState<'seed' | 'championship' | 'finalFour' | 'eliteEight' | 'sweetSixteen' | 'ev'>('seed');
+  const [sortBy, setSortBy] = useState<'seed' | 'championship' | 'finalFour' | 'eliteEight' | 'sweetSixteen' | 'ev' | 'winner'>('seed');
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredTeams = teams.filter(team => 
@@ -112,6 +113,8 @@ export default function TeamSelector({ onSelectTeam, selectedTeams }: TeamSelect
     switch (sortBy) {
       case 'seed':
         return a.seed - b.seed;
+      case 'winner':
+        return a.winner - b.winner;
       case 'championship':
         return a.odds.championship - b.odds.championship;
       case 'finalFour':
@@ -134,9 +137,10 @@ export default function TeamSelector({ onSelectTeam, selectedTeams }: TeamSelect
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-          className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 font-medium"
         >
           <option value="seed">Sort by Seed</option>
+          <option value="winner">Sort by Winner Odds</option>
           <option value="championship">Sort by Championship Odds</option>
           <option value="finalFour">Sort by Final Four Odds</option>
           <option value="eliteEight">Sort by Elite Eight Odds</option>
@@ -180,6 +184,9 @@ export default function TeamSelector({ onSelectTeam, selectedTeams }: TeamSelect
               <div className="text-sm text-right space-y-1">
                 <div className="px-3 py-1 bg-yellow-50 text-yellow-700 rounded-md font-medium">
                   EV: {team.ev}%
+                </div>
+                <div className="px-3 py-1 bg-red-50 text-red-700 rounded-md font-medium">
+                  Winner: +{team.winner}
                 </div>
                 <div className="px-3 py-1 bg-green-50 text-green-700 rounded-md font-medium">
                   Championship: {team.odds.championship > 0 ? '+' : ''}{team.odds.championship}
