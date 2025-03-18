@@ -478,7 +478,7 @@ export default function Home() {
             {/* Team Selection */}
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h2 className="text-2xl font-semibold mb-4 text-slate-800">
-                {players.find(p => p.id === currentPlayer)?.name}'s Turn
+                {players.find(p => p.id === currentPlayer)?.name}&apos;s Turn
               </h2>
               <TeamSelector
                 onSelectTeam={handleTeamSelect}
