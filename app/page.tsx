@@ -35,7 +35,7 @@ export default function Home() {
   const [draftStarted, setDraftStarted] = useState(false);
   const [draftRound, setDraftRound] = useState(1);
   const [isSnake, setIsSnake] = useState(true);
-  const [pickNumber, _] = useState(1);
+  const [pickNumber] = useState(1);
   const [isDraftComplete, setIsDraftComplete] = useState(false);
 
   const [teams] = useState<Team[]>([
@@ -183,7 +183,7 @@ export default function Home() {
   };
 
   const handleDraftOrderChange = (playerId: string, newOrder: number) => {
-    if (draftStarted) return; // Don't allow changes after draft has started
+    if (draftStarted) return; // Don&apos;t allow changes after draft has started
     
     // Find the player who currently has the new order
     const playerWithNewOrder = players.find(p => p.draftOrder === newOrder);
